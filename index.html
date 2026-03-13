@@ -3,837 +3,162 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pilihan Kelas</title>
+    <title>Pilihan Kelas UNSIA (Unofficial)</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
+      :root {
+        --canvas: #eef4fc;
+        --ink: #15233f;
+      }
+
       body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f4f7f6;
-        color: #333;
         margin: 0;
-        padding: 20px;
+        font-family: "Manrope", sans-serif;
+        background: var(--canvas);
+        color: var(--ink);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
-      h2 {
-        text-align: center;
-        color: #2c3e50;
+
+      .panel {
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.75);
+        box-shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
+        backdrop-filter: blur(18px);
       }
-      .controls {
-        display: flex;
-        justify-content: flex-end;
-        margin-bottom: 15px;
-      }
-      #searchInput {
-        padding: 10px 15px;
-        width: 100%;
-        max-width: 350px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
-        outline: none;
-        transition: border-color 0.3s;
-      }
-      #searchInput:focus {
-        border-color: #3498db;
-      }
-      .table-container {
-        overflow-x: auto;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 15px;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 10px 0;
-      }
-      th,
-      td {
-        padding: 12px 15px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-      }
-      th {
-        background-color: #3498db;
-        color: white;
-        font-weight: bold;
-        position: sticky;
-        top: 0;
-      }
-      tr:hover {
-        background-color: #f1f1f1;
-      }
-      tr:nth-child(even) {
-        background-color: #f9f9f9;
-      }
-      .no-data {
-        text-align: center;
-        padding: 20px;
-        color: #7f8c8d;
-        font-style: italic;
-        display: none;
+
+      .soft-ring {
+        box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.08);
       }
     </style>
   </head>
   <body>
-    <h2>Pilihan Kelas (13/03/2026)</h2>
+    <div class="relative isolate overflow-hidden">
+      <div
+        class="absolute inset-x-0 top-0 -z-10 h-[28rem] bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.22),_transparent_38%),radial-gradient(circle_at_top_right,_rgba(234,179,8,0.2),_transparent_32%)]"
+      ></div>
+      <div class="absolute left-8 top-28 -z-10 h-40 w-40 rounded-full bg-blue-700/15 blur-3xl"></div>
+      <div class="absolute bottom-24 right-8 -z-10 h-52 w-52 rounded-full bg-amber-300/25 blur-3xl"></div>
 
-    <div class="controls">
-      <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Cari mata kuliah, kelas, atau jadwal..." />
+      <main class="mx-auto flex min-h-screen max-w-7xl flex-col gap-6 px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
+        <section class="panel px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
+          <div class="grid gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
+            <div class="space-y-5">
+              <div class="flex items-center gap-4">
+                <img
+                  src="https://pengikut-raja-capybara.github.io/konversikan/UNSIA-LOGO.png"
+                  alt="Logo Universitas Siber Asia"
+                  class="h-14 w-14 rounded-2xl border border-blue-100 bg-white p-2 shadow-sm"
+                />
+                <span class="inline-flex items-center rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold tracking-[0.18em] text-blue-800 uppercase">Universitas Siber Asia</span>
+              </div>
+              <div class="space-y-3">
+                <h1 class="max-w-3xl text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">Referensi Pilihan Kelas untuk Membantu Susun KRS</h1>
+                <p class="max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+                  Data diambil dari portal pengisian KRS sebagai gambaran awal. Karena jadwal bisa berubah sewaktu-waktu, pastikan tetap cross-check dengan halaman resmi.
+                </p>
+              </div>
+              <div id="heroMeta" class="flex flex-wrap gap-3 text-sm text-slate-600"></div>
+            </div>
+            <div id="statsGrid" class="grid gap-3 sm:grid-cols-2 lg:grid-cols-1"></div>
+          </div>
+        </section>
+
+        <section class="panel px-5 py-5 sm:px-6">
+          <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div class="grid flex-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
+              <label class="space-y-2">
+                <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Cari</span>
+                <input
+                  id="searchInput"
+                  type="text"
+                  placeholder="Cari mata kuliah, kelas, atau jadwal"
+                  class="soft-ring w-full rounded-2xl border-0 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:ring-2 focus:ring-blue-700/30"
+                />
+              </label>
+
+              <label class="space-y-2">
+                <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Semester</span>
+                <select id="semesterFilter" class="soft-ring w-full rounded-2xl border-0 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:ring-2 focus:ring-blue-700/30">
+                  <option value="all">Semua semester</option>
+                </select>
+              </label>
+
+              <label class="space-y-2">
+                <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Hari</span>
+                <select id="dayFilter" class="soft-ring w-full rounded-2xl border-0 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:ring-2 focus:ring-blue-700/30">
+                  <option value="all">Semua hari</option>
+                </select>
+              </label>
+
+              <label class="space-y-2">
+                <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Urutkan</span>
+                <select id="sortFilter" class="soft-ring w-full rounded-2xl border-0 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:ring-2 focus:ring-blue-700/30">
+                  <option value="course">Mata kuliah A-Z</option>
+                  <option value="semester">Semester terendah</option>
+                  <option value="day">Hari terdekat</option>
+                  <option value="sks">SKS terbesar</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="rounded-2xl bg-blue-950 px-4 py-3 text-sm text-white shadow-lg shadow-blue-900/20">
+              <p class="font-semibold">Ringkasan hasil</p>
+              <p id="resultSummary" class="mt-1 text-slate-300">Memuat data jadwal...</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="emptyState" class="panel hidden px-6 py-10 text-center sm:px-8">
+          <p class="text-lg font-semibold text-slate-900">Data tidak ditemukan.</p>
+          <p class="mt-2 text-sm text-slate-600">Coba ubah kata kunci pencarian atau longgarkan filter semester dan hari.</p>
+        </section>
+
+        <section id="resultsSection" class="grid gap-6">
+          <div class="hidden panel overflow-hidden lg:block">
+            <div class="border-b border-black/5 px-6 py-4">
+              <h2 class="text-lg font-bold text-slate-900">Tabel pilihan kelas</h2>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="min-w-full text-sm">
+                <thead class="bg-blue-900 text-left text-xs font-bold uppercase tracking-[0.2em] text-white">
+                  <tr>
+                    <th class="px-6 py-4">Mata kuliah</th>
+                    <th class="px-4 py-4">Kelas</th>
+                    <th class="px-4 py-4">Jadwal</th>
+                    <th class="px-4 py-4">SKS</th>
+                    <th class="px-4 py-4">Semester</th>
+                    <th class="px-6 py-4">Status</th>
+                  </tr>
+                </thead>
+                <tbody id="desktopTableBody" class="divide-y divide-black/5 bg-white/70"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="panel px-5 py-5 sm:px-6 lg:hidden">
+            <div class="flex items-center justify-between gap-3">
+              <div>
+                <h2 class="text-lg font-bold text-slate-900">Kartu cepat</h2>
+              </div>
+            </div>
+            <div id="mobileList" class="mt-5 grid gap-4"></div>
+          </div>
+        </section>
+      </main>
     </div>
 
-    <div class="table-container">
-      <table id="jadwalTable">
-        <thead>
-          <tr>
-            <th>Mata Kuliah</th>
-            <th>Kelas</th>
-            <th>Jadwal</th>
-            <th>SKS</th>
-            <th>Semester</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>200202208 - Aljabar Linear</td>
-            <td>SI201</td>
-            <td>Selasa, 13:00 - 14:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202208 - Aljabar Linear</td>
-            <td>SI202</td>
-            <td>Rabu, 13:00 - 14:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202208 - Aljabar Linear</td>
-            <td>SI203</td>
-            <td>Jumat, 13:00 - 14:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202208 - Aljabar Linear</td>
-            <td>SI204</td>
-            <td>Rabu, 13:00 - 14:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202211 - Analisis Proses Bisnis</td>
-            <td>SI201</td>
-            <td>Selasa, 16:00 - 18:30</td>
-            <td>3</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202211 - Analisis Proses Bisnis</td>
-            <td>SI202</td>
-            <td>Jumat, 16:00 - 18:30</td>
-            <td>3</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202211 - Analisis Proses Bisnis</td>
-            <td>SI203</td>
-            <td>Senin, 15:20 - 17:00</td>
-            <td>3</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202211 - Analisis Proses Bisnis</td>
-            <td>SI204</td>
-            <td>Jumat, 15:30 - 18:00</td>
-            <td>3</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202211 - Analisis Proses Bisnis</td>
-            <td>SI205</td>
-            <td>Kamis, 08:00 - 09:40</td>
-            <td>3</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200002106 - Estetika Humanisme</td>
-            <td>SI201</td>
-            <td>Senin, 10:00 - 11:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200002106 - Estetika Humanisme</td>
-            <td>SI202</td>
-            <td>Rabu, 08:00 - 09:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200002106 - Estetika Humanisme</td>
-            <td>SI203</td>
-            <td>Jumat, 08:00 - 09:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200002106 - Estetika Humanisme</td>
-            <td>SI204</td>
-            <td>Jumat, 08:00 - 09:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202207 - Matematika Diskrit</td>
-            <td>SI201</td>
-            <td>Selasa, 10:00 - 11:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202207 - Matematika Diskrit</td>
-            <td>SI202</td>
-            <td>Senin, 08:00 - 09:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202207 - Matematika Diskrit</td>
-            <td>SI203</td>
-            <td>Selasa, 15:20 - 17:00</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202207 - Matematika Diskrit</td>
-            <td>SI204</td>
-            <td>Rabu, 15:20 - 17:00</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202209 - Organisasi dan Arsitektur Komputer</td>
-            <td>SI201</td>
-            <td>Jumat, 08:00 - 09:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202209 - Organisasi dan Arsitektur Komputer</td>
-            <td>SI202</td>
-            <td>Selasa, 10:00 - 11:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202209 - Organisasi dan Arsitektur Komputer</td>
-            <td>SI203</td>
-            <td>Sabtu, 08:00 - 09:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202209 - Organisasi dan Arsitektur Komputer</td>
-            <td>SI204</td>
-            <td>Sabtu, 10:00 - 11:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200002101 - Pendidikan Pancasila</td>
-            <td>SI201</td>
-            <td>Senin, 08:00 - 09:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200002101 - Pendidikan Pancasila</td>
-            <td>SI202</td>
-            <td>Selasa, 08:00 - 09:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200002101 - Pendidikan Pancasila</td>
-            <td>SI203</td>
-            <td>Kamis, 08:00 - 09:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200002101 - Pendidikan Pancasila</td>
-            <td>SI204</td>
-            <td>Kamis, 08:00 - 09:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202212 - Sistem Operasi</td>
-            <td>SI201</td>
-            <td>Senin, 15:30 - 18:00</td>
-            <td>3</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202212 - Sistem Operasi</td>
-            <td>SI202</td>
-            <td>Selasa, 13:20 - 15:50</td>
-            <td>3</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202212 - Sistem Operasi</td>
-            <td>SI203</td>
-            <td>Kamis, 17:00 - 18:40</td>
-            <td>3</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202212 - Sistem Operasi</td>
-            <td>SI204</td>
-            <td>Sabtu, 17:00 - 18:40</td>
-            <td>3</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202210 - Teori Prilaku Organisasi</td>
-            <td>SI201</td>
-            <td>Sabtu, 08:00 - 09:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202210 - Teori Prilaku Organisasi</td>
-            <td>SI202</td>
-            <td>Sabtu, 10:00 - 11:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202210 - Teori Prilaku Organisasi</td>
-            <td>SI203</td>
-            <td>Rabu, 17:00 - 18:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202210 - Teori Prilaku Organisasi</td>
-            <td>SI204</td>
-            <td>Selasa, 17:00 - 18:40</td>
-            <td>2</td>
-            <td>2</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>210101109 - Bahasa Korea</td>
-            <td>SI301</td>
-            <td>Rabu, 17:00 - 18:40</td>
-            <td>2</td>
-            <td>3</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200002103 - Bahasa Indonesia</td>
-            <td>SI401</td>
-            <td>Rabu, 10:00 - 11:40</td>
-            <td>2</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200002103 - Bahasa Indonesia</td>
-            <td>SI402</td>
-            <td>Kamis, 08:00 - 09:40</td>
-            <td>2</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200002103 - Bahasa Indonesia</td>
-            <td>SI403</td>
-            <td>Senin, 13:00 - 14:40</td>
-            <td>2</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202304 - Business Intelligent</td>
-            <td>SI401</td>
-            <td>Jumat, 13:20 - 15:50</td>
-            <td>3</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202304 - Business Intelligent</td>
-            <td>SI402</td>
-            <td>Jumat, 10:40 - 13:10</td>
-            <td>3</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202304 - Business Intelligent</td>
-            <td>SI403</td>
-            <td>Selasa, 10:40 - 13:10</td>
-            <td>3</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202304 - Business Intelligent</td>
-            <td>SI404</td>
-            <td>Jumat, 16:00 - 18:30</td>
-            <td>3</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202306 - E-Business</td>
-            <td>SI401</td>
-            <td>Kamis, 13:20 - 15:50</td>
-            <td>3</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202306 - E-Business</td>
-            <td>SI402</td>
-            <td>Sabtu, 13:20 - 15:50</td>
-            <td>3</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202306 - E-Business</td>
-            <td>SI403</td>
-            <td>Sabtu, 15:30 - 18:00</td>
-            <td>3</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202306 - E-Business</td>
-            <td>SI404</td>
-            <td>Selasa, 08:00 - 10:30</td>
-            <td>3</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202305 - Keamanan Sistem Informasi</td>
-            <td>SI401</td>
-            <td>Rabu, 13:20 - 15:50</td>
-            <td>3</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202305 - Keamanan Sistem Informasi</td>
-            <td>SI402</td>
-            <td>Senin, 13:20 - 15:50</td>
-            <td>3</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202305 - Keamanan Sistem Informasi</td>
-            <td>SI403</td>
-            <td>Selasa, 16:00 - 18:30</td>
-            <td>3</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202308 - Pemrograman Berorientasi Objek</td>
-            <td>SI401</td>
-            <td>Sabtu, 16:00 - 18:30</td>
-            <td>3</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202308 - Pemrograman Berorientasi Objek</td>
-            <td>SI402</td>
-            <td>Kamis, 10:40 - 13:10</td>
-            <td>3</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202308 - Pemrograman Berorientasi Objek</td>
-            <td>SI403</td>
-            <td>Sabtu, 13:20 - 15:50</td>
-            <td>3</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202307 - Pemrograman Visual</td>
-            <td>SI401</td>
-            <td>Sabtu, 13:20 - 15:50</td>
-            <td>3</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202307 - Pemrograman Visual</td>
-            <td>SI402</td>
-            <td>Sabtu, 16:00 - 18:30</td>
-            <td>3</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202307 - Pemrograman Visual</td>
-            <td>SI403</td>
-            <td>Kamis, 10:40 - 13:10</td>
-            <td>3</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202214 - Sistem Informasi Akuntansi</td>
-            <td>SI401</td>
-            <td>Kamis, 08:00 - 10:30</td>
-            <td>3</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202214 - Sistem Informasi Akuntansi</td>
-            <td>SI402</td>
-            <td>Kamis, 13:20 - 15:50</td>
-            <td>3</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202214 - Sistem Informasi Akuntansi</td>
-            <td>SI403</td>
-            <td>Jumat, 13:20 - 15:50</td>
-            <td>3</td>
-            <td>4</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202318 - Arsitektur Sistem Enterprise</td>
-            <td>SI601</td>
-            <td>Jumat, 15:30 - 18:00</td>
-            <td>3</td>
-            <td>6</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202318 - Arsitektur Sistem Enterprise</td>
-            <td>SI602</td>
-            <td>Sabtu, 10:40 - 13:10</td>
-            <td>3</td>
-            <td>6</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202318 - Arsitektur Sistem Enterprise</td>
-            <td>SI603</td>
-            <td>Rabu, 15:30 - 18:00</td>
-            <td>3</td>
-            <td>6</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202402 - Data Warehouse/ OLAP</td>
-            <td>SI601</td>
-            <td>Jumat, 08:00 - 10:30</td>
-            <td>3</td>
-            <td>6</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202402 - Data Warehouse/ OLAP</td>
-            <td>SI602</td>
-            <td>Sabtu, 08:00 - 10:30</td>
-            <td>3</td>
-            <td>6</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202317 - Enterprise Resource Planning</td>
-            <td>SI601</td>
-            <td>Kamis, 16:00 - 18:30</td>
-            <td>3</td>
-            <td>6</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202317 - Enterprise Resource Planning</td>
-            <td>SI602</td>
-            <td>Selasa, 16:00 - 18:30</td>
-            <td>3</td>
-            <td>6</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202317 - Enterprise Resource Planning</td>
-            <td>SI603</td>
-            <td>Selasa, 16:00 - 18:30</td>
-            <td>3</td>
-            <td>6</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202315 - Kerja Praktek</td>
-            <td>SI601</td>
-            <td>Minggu, 10:00 - 11:40</td>
-            <td>2</td>
-            <td>6</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202403 - Knowledge Management</td>
-            <td>SI601</td>
-            <td>Jumat, 08:00 - 10:30</td>
-            <td>3</td>
-            <td>6</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202403 - Knowledge Management</td>
-            <td>SI602</td>
-            <td>Senin, 16:00 - 18:30</td>
-            <td>3</td>
-            <td>6</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202403 - Knowledge Management</td>
-            <td>SI603</td>
-            <td>Senin, 10:40 - 13:10</td>
-            <td>3</td>
-            <td>6</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202316 - Metodologi Riset dan Penulisan Ilmiah Sistem Informasi</td>
-            <td>SI601</td>
-            <td>Senin, 10:00 - 11:40</td>
-            <td>2</td>
-            <td>6</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202316 - Metodologi Riset dan Penulisan Ilmiah Sistem Informasi</td>
-            <td>SI602</td>
-            <td>Sabtu, 08:00 - 09:40</td>
-            <td>2</td>
-            <td>6</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202316 - Metodologi Riset dan Penulisan Ilmiah Sistem Informasi</td>
-            <td>SI603</td>
-            <td>Jumat, 08:00 - 10:30</td>
-            <td>2</td>
-            <td>6</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200002102 - Pendidikan Kewirausahaan</td>
-            <td>SI601</td>
-            <td>Selasa, 08:00 - 09:40</td>
-            <td>2</td>
-            <td>6</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200002102 - Pendidikan Kewirausahaan</td>
-            <td>SI602</td>
-            <td>Rabu, 08:00 - 09:40</td>
-            <td>2</td>
-            <td>6</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202314 - Rekayasa Perangkat Lunak</td>
-            <td>SI601</td>
-            <td>Senin, 16:00 - 18:30</td>
-            <td>3</td>
-            <td>6</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202314 - Rekayasa Perangkat Lunak</td>
-            <td>SI602</td>
-            <td>Selasa, 08:00 - 10:30</td>
-            <td>3</td>
-            <td>6</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202407 - Big Data For Business</td>
-            <td>SI801</td>
-            <td>Kamis, 13:20 - 15:50</td>
-            <td>3</td>
-            <td>8</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202407 - Big Data For Business</td>
-            <td>SI802</td>
-            <td>Senin, 08:00 - 10:30</td>
-            <td>3</td>
-            <td>8</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202327 - Etika Profesi Sistem Informasi</td>
-            <td>SI801</td>
-            <td>Sabtu, 17:00 - 18:40</td>
-            <td>2</td>
-            <td>8</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202327 - Etika Profesi Sistem Informasi</td>
-            <td>SI802</td>
-            <td>Rabu, 10:40 - 13:10</td>
-            <td>2</td>
-            <td>8</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202406 - Financial Technology</td>
-            <td>SI801</td>
-            <td>Kamis, 13:20 - 15:50</td>
-            <td>3</td>
-            <td>8</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202406 - Financial Technology</td>
-            <td>SI802</td>
-            <td>Senin, 08:00 - 10:30</td>
-            <td>3</td>
-            <td>8</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202326 - Inovasi Kreatif Digital</td>
-            <td>SI801</td>
-            <td>Sabtu, 15:20 - 17:00</td>
-            <td>2</td>
-            <td>8</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202326 - Inovasi Kreatif Digital</td>
-            <td>SI802</td>
-            <td>Senin, 08:00 - 09:40</td>
-            <td>2</td>
-            <td>8</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202325 - Interpersonal Skill</td>
-            <td>SI801</td>
-            <td>Kamis, 10:00 - 11:40</td>
-            <td>2</td>
-            <td>8</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202325 - Interpersonal Skill</td>
-            <td>SI802</td>
-            <td>Jumat, 17:00 - 18:40</td>
-            <td>2</td>
-            <td>8</td>
-            <td>Online</td>
-          </tr>
-          <tr>
-            <td>200202324 - Tugas Akhir</td>
-            <td>SI801</td>
-            <td>Minggu, 08:00 - 09:40</td>
-            <td>6</td>
-            <td>8</td>
-            <td>Online</td>
-          </tr>
-        </tbody>
-      </table>
-      <div id="noData" class="no-data">Data tidak ditemukan.</div>
-    </div>
+    <script src="./scripts/schedule-data.js"></script>
 
-    <script>
-      function filterTable() {
-        let input = document.getElementById("searchInput");
-        let filter = input.value.toLowerCase();
-        let table = document.getElementById("jadwalTable");
-        let tr = table.getElementsByTagName("tr");
-        let noData = document.getElementById("noData");
-        let matchFound = false;
-
-        // Looping mulai dari 1 karena baris 0 adalah header (th)
-        for (let i = 1; i < tr.length; i++) {
-          let row = tr[i];
-          let td = row.getElementsByTagName("td");
-
-          if (td.length > 0) {
-            // Ambil teks spesifik dari kolom Mata Kuliah [0], Kelas [1], dan Jadwal [2]
-            let txtMataKuliah = td[0].textContent || td[0].innerText;
-            let txtKelas = td[1].textContent || td[1].innerText;
-            let txtJadwal = td[2].textContent || td[2].innerText;
-
-            // Gabungkan teks untuk diperiksa
-            let combinedText = txtMataKuliah + " " + txtKelas + " " + txtJadwal;
-
-            if (combinedText.toLowerCase().indexOf(filter) > -1) {
-              row.style.display = "";
-              matchFound = true;
-            } else {
-              row.style.display = "none";
-            }
-          }
-        }
-
-        // Tampilkan pesan jika data tidak ada
-        if (!matchFound && tr.length > 1) {
-          noData.style.display = "block";
-        } else {
-          noData.style.display = "none";
-        }
-      }
-    </script>
+    <script src="./scripts/data.js"></script>
+    <script src="./scripts/app.js"></script>
   </body>
 </html>
