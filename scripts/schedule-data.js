@@ -1,690 +1,787 @@
-window.SCHEDULE_DATA = [
+window.SCHEDULE_PERIODS = window.SCHEDULE_PERIODS || {};
+
+window.SCHEDULE_PERIODS["ganjil-26-27"] = {
+  id: "ganjil-26-27",
+  name: "Semester Ganjil 2026/2027",
+  shortName: "Ganjil 26/27",
+  updatedAt: "Oktober 2026",
+  statusBadge: "Aktif",
+  isDefault: true,
+  data: [
   {
-    "course": "200202208 - Aljabar Linear",
-    "className": "SI201",
-    "schedule": "Selasa, 13:00 - 14:40",
-    "sks": 2,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200202208 - Aljabar Linear",
-    "className": "SI202",
-    "schedule": "Rabu, 13:00 - 14:40",
-    "sks": 2,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200202208 - Aljabar Linear",
-    "className": "SI203",
-    "schedule": "Jumat, 13:00 - 14:40",
-    "sks": 2,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200202208 - Aljabar Linear",
-    "className": "SI204",
-    "schedule": "Rabu, 13:00 - 14:40",
-    "sks": 2,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200202211 - Analisis Proses Bisnis",
-    "className": "SI201",
-    "schedule": "Selasa, 16:00 - 18:30",
-    "sks": 3,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200202211 - Analisis Proses Bisnis",
-    "className": "SI202",
-    "schedule": "Jumat, 16:00 - 18:30",
-    "sks": 3,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200202211 - Analisis Proses Bisnis",
-    "className": "SI203",
-    "schedule": "Senin, 15:20 - 17:00",
-    "sks": 3,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200202211 - Analisis Proses Bisnis",
-    "className": "SI204",
-    "schedule": "Jumat, 15:30 - 18:00",
-    "sks": 3,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200202211 - Analisis Proses Bisnis",
-    "className": "SI205",
-    "schedule": "Kamis, 08:00 - 09:40",
-    "sks": 3,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200002106 - Estetika Humanisme",
-    "className": "SI201",
-    "schedule": "Senin, 10:00 - 11:40",
-    "sks": 2,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200002106 - Estetika Humanisme",
-    "className": "SI202",
-    "schedule": "Rabu, 08:00 - 09:40",
-    "sks": 2,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200002106 - Estetika Humanisme",
-    "className": "SI203",
-    "schedule": "Jumat, 08:00 - 09:40",
-    "sks": 2,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200002106 - Estetika Humanisme",
-    "className": "SI204",
-    "schedule": "Jumat, 08:00 - 09:40",
-    "sks": 2,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200202207 - Matematika Diskrit",
-    "className": "SI201",
-    "schedule": "Selasa, 10:00 - 11:40",
-    "sks": 2,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200202207 - Matematika Diskrit",
-    "className": "SI202",
-    "schedule": "Senin, 08:00 - 09:40",
-    "sks": 2,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200202207 - Matematika Diskrit",
-    "className": "SI203",
-    "schedule": "Selasa, 15:20 - 17:00",
-    "sks": 2,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200202207 - Matematika Diskrit",
-    "className": "SI204",
-    "schedule": "Rabu, 15:20 - 17:00",
-    "sks": 2,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200202209 - Organisasi dan Arsitektur Komputer",
-    "className": "SI201",
-    "schedule": "Jumat, 08:00 - 09:40",
-    "sks": 2,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200202209 - Organisasi dan Arsitektur Komputer",
-    "className": "SI202",
-    "schedule": "Selasa, 10:00 - 11:40",
-    "sks": 2,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200202209 - Organisasi dan Arsitektur Komputer",
-    "className": "SI203",
-    "schedule": "Sabtu, 08:00 - 09:40",
-    "sks": 2,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200202209 - Organisasi dan Arsitektur Komputer",
-    "className": "SI204",
-    "schedule": "Sabtu, 10:00 - 11:40",
-    "sks": 2,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200002101 - Pendidikan Pancasila",
-    "className": "SI201",
-    "schedule": "Senin, 08:00 - 09:40",
-    "sks": 2,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200002101 - Pendidikan Pancasila",
-    "className": "SI202",
-    "schedule": "Selasa, 08:00 - 09:40",
-    "sks": 2,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200002101 - Pendidikan Pancasila",
-    "className": "SI203",
-    "schedule": "Kamis, 08:00 - 09:40",
-    "sks": 2,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200002101 - Pendidikan Pancasila",
-    "className": "SI204",
-    "schedule": "Kamis, 08:00 - 09:40",
-    "sks": 2,
-    "semester": 2,
-    "status": "Online"
-  },
-  {
-    "course": "200202212 - Sistem Operasi",
-    "className": "SI201",
+    "course": "200201310 - Analisis dan Perancangan Sistem Informasi",
+    "className": "SI501",
     "schedule": "Senin, 15:30 - 18:00",
     "sks": 3,
-    "semester": 2,
+    "semester": 5,
     "status": "Online"
   },
   {
-    "course": "200202212 - Sistem Operasi",
-    "className": "SI202",
+    "course": "200201310 - Analisis dan Perancangan Sistem Informasi",
+    "className": "SI502",
     "schedule": "Selasa, 13:20 - 15:50",
     "sks": 3,
-    "semester": 2,
+    "semester": 5,
     "status": "Online"
   },
   {
-    "course": "200202212 - Sistem Operasi",
-    "className": "SI203",
-    "schedule": "Kamis, 17:00 - 18:40",
+    "course": "200201310 - Analisis dan Perancangan Sistem Informasi",
+    "className": "SI503",
+    "schedule": "Sabtu, 10:40 - 13:10",
     "sks": 3,
-    "semester": 2,
+    "semester": 5,
     "status": "Online"
   },
   {
-    "course": "200202212 - Sistem Operasi",
-    "className": "SI204",
-    "schedule": "Sabtu, 17:00 - 18:40",
+    "course": "200201312 - Analisis dan Visualisasi Data",
+    "className": "SI501",
+    "schedule": "Senin, 08:00 - 10:30",
     "sks": 3,
-    "semester": 2,
+    "semester": 5,
     "status": "Online"
   },
   {
-    "course": "200202210 - Teori Prilaku Organisasi",
-    "className": "SI201",
+    "course": "200201312 - Analisis dan Visualisasi Data",
+    "className": "SI502",
+    "schedule": "Selasa, 16:00 - 18:30",
+    "sks": 3,
+    "semester": 5,
+    "status": "Online"
+  },
+  {
+    "course": "200201312 - Analisis dan Visualisasi Data",
+    "className": "SI503",
+    "schedule": "Sabtu, 15:30 - 18:00",
+    "sks": 3,
+    "semester": 5,
+    "status": "Online"
+  },
+  {
+    "course": "200201311 - Data Mining",
+    "className": "SI501",
+    "schedule": "Kamis, 16:00 - 18:30",
+    "sks": 3,
+    "semester": 5,
+    "status": "Online"
+  },
+  {
+    "course": "200201311 - Data Mining",
+    "className": "SI502",
+    "schedule": "Kamis, 13:20 - 15:50",
+    "sks": 3,
+    "semester": 5,
+    "status": "Online"
+  },
+  {
+    "course": "200201311 - Data Mining",
+    "className": "SI503",
+    "schedule": "Jumat, 10:00 - 11:40",
+    "sks": 3,
+    "semester": 5,
+    "status": "Online"
+  },
+  {
+    "course": "200201400 - E-Commerce",
+    "className": "SI501",
+    "schedule": "Rabu, 10:40 - 13:10",
+    "sks": 3,
+    "semester": 5,
+    "status": "Online"
+  },
+  {
+    "course": "200201400 - E-Commerce",
+    "className": "SI502",
+    "schedule": "Rabu, 08:00 - 10:30",
+    "sks": 3,
+    "semester": 5,
+    "status": "Online"
+  },
+  {
+    "course": "200201313 - Kecerdasan Buatan",
+    "className": "SI501",
+    "schedule": "Rabu, 08:00 - 10:30",
+    "sks": 3,
+    "semester": 5,
+    "status": "Online"
+  },
+  {
+    "course": "200201313 - Kecerdasan Buatan",
+    "className": "SI502",
+    "schedule": "Rabu, 15:30 - 18:00",
+    "sks": 3,
+    "semester": 5,
+    "status": "Online"
+  },
+  {
+    "course": "200201313 - Kecerdasan Buatan",
+    "className": "SI503",
+    "schedule": "Jumat, 16:00 - 18:30",
+    "sks": 3,
+    "semester": 5,
+    "status": "Online"
+  },
+  {
+    "course": "200201309 - Pemrograman Berbasis Web",
+    "className": "SI501",
+    "schedule": "Kamis, 13:20 - 15:50",
+    "sks": 3,
+    "semester": 5,
+    "status": "Online"
+  },
+  {
+    "course": "200201309 - Pemrograman Berbasis Web",
+    "className": "SI502",
+    "schedule": "Senin, 08:00 - 10:30",
+    "sks": 3,
+    "semester": 5,
+    "status": "Online"
+  },
+  {
+    "course": "200201309 - Pemrograman Berbasis Web",
+    "className": "SI503",
+    "schedule": "Jumat, 16:00 - 18:30",
+    "sks": 3,
+    "semester": 5,
+    "status": "Online"
+  },
+  {
+    "course": "200201401 - Sistem Pendukung Keputusan",
+    "className": "SI501",
+    "schedule": "Rabu, 10:40 - 13:10",
+    "sks": 3,
+    "semester": 5,
+    "status": "Online"
+  },
+  {
+    "course": "200201401 - Sistem Pendukung Keputusan",
+    "className": "SI502",
+    "schedule": "Rabu, 08:00 - 10:30",
+    "sks": 3,
+    "semester": 5,
+    "status": "Online"
+  },
+  {
+    "course": "200501104 - Bahasa Inggris",
+    "className": "SI101",
+    "schedule": "Senin, 10:00 - 11:40",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200501104 - Bahasa Inggris",
+    "className": "SI102",
+    "schedule": "Selasa, 08:00 - 09:40",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200501104 - Bahasa Inggris",
+    "className": "SI103",
+    "schedule": "Rabu, 08:00 - 09:40",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200501104 - Bahasa Inggris",
+    "className": "SI104",
+    "schedule": "Kamis, 08:00 - 09:40",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201202 - Dasar-Dasar Pemrograman",
+    "className": "SI101",
+    "schedule": "Senin, 16:00 - 18:30",
+    "sks": 3,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201202 - Dasar-Dasar Pemrograman",
+    "className": "SI102",
+    "schedule": "Selasa, 15:30 - 18:00",
+    "sks": 3,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201202 - Dasar-Dasar Pemrograman",
+    "className": "SI103",
+    "schedule": "Rabu, 15:30 - 18:00",
+    "sks": 3,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201202 - Dasar-Dasar Pemrograman",
+    "className": "SI104",
+    "schedule": "Kamis, 15:30 - 18:00",
+    "sks": 3,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200001108 - ICT Literacy",
+    "className": "SI101",
+    "schedule": "Senin, 10:00 - 11:40",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200001108 - ICT Literacy",
+    "className": "SI102",
+    "schedule": "Selasa, 10:00 - 11:40",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200001108 - ICT Literacy",
+    "className": "SI103",
+    "schedule": "Senin, 08:00 - 09:40",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200001108 - ICT Literacy",
+    "className": "SI104",
+    "schedule": "Senin, 10:00 - 11:40",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200001108 - ICT Literacy",
+    "className": "SI105",
+    "schedule": "Selasa, 08:00 - 09:40",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201206 - Manajemen Teknologi Sistem Informasi",
+    "className": "SI101",
+    "schedule": "Selasa, 13:00 - 14:40",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201206 - Manajemen Teknologi Sistem Informasi",
+    "className": "SI102",
+    "schedule": "Kamis, 08:00 - 09:40",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201206 - Manajemen Teknologi Sistem Informasi",
+    "className": "SI103",
+    "schedule": "Kamis, 13:00 - 14:40",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201206 - Manajemen Teknologi Sistem Informasi",
+    "className": "SI104",
+    "schedule": "Jumat, 13:00 - 14:40",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201201 - Manajemen Umum",
+    "className": "SI101",
+    "schedule": "Jumat, 08:00 - 09:40",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201201 - Manajemen Umum",
+    "className": "SI102",
+    "schedule": "Jumat, 10:00 - 11:40",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201201 - Manajemen Umum",
+    "className": "SI103",
+    "schedule": "Selasa, 15:20 - 17:00",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201201 - Manajemen Umum",
+    "className": "SI104",
     "schedule": "Sabtu, 08:00 - 09:40",
     "sks": 2,
-    "semester": 2,
+    "semester": 1,
     "status": "Online"
   },
   {
-    "course": "200202210 - Teori Prilaku Organisasi",
-    "className": "SI202",
-    "schedule": "Sabtu, 10:00 - 11:40",
+    "course": "200201205 - Pengantar Sistem Informasi Bisnis",
+    "className": "SI101",
+    "schedule": "Selasa, 10:00 - 11:40",
     "sks": 2,
-    "semester": 2,
+    "semester": 1,
     "status": "Online"
   },
   {
-    "course": "200202210 - Teori Prilaku Organisasi",
-    "className": "SI203",
-    "schedule": "Rabu, 17:00 - 18:40",
+    "course": "200201205 - Pengantar Sistem Informasi Bisnis",
+    "className": "SI102",
+    "schedule": "Selasa, 13:00 - 14:40",
     "sks": 2,
-    "semester": 2,
+    "semester": 1,
     "status": "Online"
   },
   {
-    "course": "200202210 - Teori Prilaku Organisasi",
-    "className": "SI204",
-    "schedule": "Selasa, 17:00 - 18:40",
+    "course": "200201205 - Pengantar Sistem Informasi Bisnis",
+    "className": "SI103",
+    "schedule": "Kamis, 10:00 - 11:40",
     "sks": 2,
-    "semester": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201205 - Pengantar Sistem Informasi Bisnis",
+    "className": "SI104",
+    "schedule": "Jumat, 10:00 - 11:40",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201204 - Pengantar Teknologi Sistem Informasi",
+    "className": "SI101",
+    "schedule": "Rabu, 08:00 - 09:40",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201204 - Pengantar Teknologi Sistem Informasi",
+    "className": "SI102",
+    "schedule": "Rabu, 10:00 - 11:40",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201204 - Pengantar Teknologi Sistem Informasi",
+    "className": "SI103",
+    "schedule": "Rabu, 13:00 - 14:40",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201204 - Pengantar Teknologi Sistem Informasi",
+    "className": "SI104",
+    "schedule": "Senin, 15:20 - 17:00",
+    "sks": 2,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201203 - Struktur Data dan Algoritma",
+    "className": "SI101",
+    "schedule": "Senin, 13:20 - 15:50",
+    "sks": 3,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201203 - Struktur Data dan Algoritma",
+    "className": "SI102",
+    "schedule": "Senin, 13:20 - 15:50",
+    "sks": 3,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201203 - Struktur Data dan Algoritma",
+    "className": "SI103",
+    "schedule": "Selasa, 08:00 - 10:30",
+    "sks": 3,
+    "semester": 1,
+    "status": "Online"
+  },
+  {
+    "course": "200201203 - Struktur Data dan Algoritma",
+    "className": "SI104",
+    "schedule": "Selasa, 16:00 - 18:30",
+    "sks": 3,
+    "semester": 1,
     "status": "Online"
   },
   {
     "course": "210101109 - Bahasa Korea",
     "className": "SI301",
-    "schedule": "Rabu, 17:00 - 18:40",
+    "schedule": "Sabtu, 08:00 - 09:40",
     "sks": 2,
     "semester": 3,
     "status": "Online"
   },
   {
-    "course": "200002103 - Bahasa Indonesia",
-    "className": "SI401",
-    "schedule": "Rabu, 10:00 - 11:40",
+    "course": "210101109 - Bahasa Korea",
+    "className": "SI302",
+    "schedule": "Sabtu, 10:00 - 11:40",
     "sks": 2,
-    "semester": 4,
+    "semester": 3,
     "status": "Online"
   },
   {
-    "course": "200002103 - Bahasa Indonesia",
-    "className": "SI402",
-    "schedule": "Kamis, 08:00 - 09:40",
-    "sks": 2,
-    "semester": 4,
+    "course": "200202303 - Interaksi Manusia dan Komputer",
+    "className": "SI301",
+    "schedule": "Sabtu, 13:20 - 15:50",
+    "sks": 3,
+    "semester": 3,
     "status": "Online"
   },
   {
-    "course": "200002103 - Bahasa Indonesia",
-    "className": "SI403",
-    "schedule": "Senin, 13:00 - 14:40",
-    "sks": 2,
-    "semester": 4,
+    "course": "200202303 - Interaksi Manusia dan Komputer",
+    "className": "SI302",
+    "schedule": "Senin, 10:00 - 11:40",
+    "sks": 3,
+    "semester": 3,
     "status": "Online"
   },
   {
-    "course": "200202304 - Business Intelligent",
-    "className": "SI401",
+    "course": "200202303 - Interaksi Manusia dan Komputer",
+    "className": "SI303",
     "schedule": "Jumat, 13:20 - 15:50",
     "sks": 3,
-    "semester": 4,
+    "semester": 3,
     "status": "Online"
   },
   {
-    "course": "200202304 - Business Intelligent",
-    "className": "SI402",
-    "schedule": "Jumat, 10:40 - 13:10",
-    "sks": 3,
-    "semester": 4,
-    "status": "Online"
-  },
-  {
-    "course": "200202304 - Business Intelligent",
-    "className": "SI403",
-    "schedule": "Selasa, 10:40 - 13:10",
-    "sks": 3,
-    "semester": 4,
-    "status": "Online"
-  },
-  {
-    "course": "200202304 - Business Intelligent",
-    "className": "SI404",
-    "schedule": "Jumat, 16:00 - 18:30",
-    "sks": 3,
-    "semester": 4,
-    "status": "Online"
-  },
-  {
-    "course": "200202306 - E-Business",
-    "className": "SI401",
-    "schedule": "Kamis, 13:20 - 15:50",
-    "sks": 3,
-    "semester": 4,
-    "status": "Online"
-  },
-  {
-    "course": "200202306 - E-Business",
-    "className": "SI402",
-    "schedule": "Sabtu, 13:20 - 15:50",
-    "sks": 3,
-    "semester": 4,
-    "status": "Online"
-  },
-  {
-    "course": "200202306 - E-Business",
-    "className": "SI403",
-    "schedule": "Sabtu, 15:30 - 18:00",
-    "sks": 3,
-    "semester": 4,
-    "status": "Online"
-  },
-  {
-    "course": "200202306 - E-Business",
-    "className": "SI404",
-    "schedule": "Selasa, 08:00 - 10:30",
-    "sks": 3,
-    "semester": 4,
-    "status": "Online"
-  },
-  {
-    "course": "200202305 - Keamanan Sistem Informasi",
-    "className": "SI401",
-    "schedule": "Rabu, 13:20 - 15:50",
-    "sks": 3,
-    "semester": 4,
-    "status": "Online"
-  },
-  {
-    "course": "200202305 - Keamanan Sistem Informasi",
-    "className": "SI402",
-    "schedule": "Senin, 13:20 - 15:50",
-    "sks": 3,
-    "semester": 4,
-    "status": "Online"
-  },
-  {
-    "course": "200202305 - Keamanan Sistem Informasi",
-    "className": "SI403",
+    "course": "200201302 - Komunikasi Data dan Jaringan Komputer",
+    "className": "SI301",
     "schedule": "Selasa, 16:00 - 18:30",
     "sks": 3,
-    "semester": 4,
+    "semester": 3,
     "status": "Online"
   },
   {
-    "course": "200202308 - Pemrograman Berorientasi Objek",
-    "className": "SI401",
+    "course": "200201302 - Komunikasi Data dan Jaringan Komputer",
+    "className": "SI302",
     "schedule": "Sabtu, 16:00 - 18:30",
     "sks": 3,
-    "semester": 4,
+    "semester": 3,
     "status": "Online"
   },
   {
-    "course": "200202308 - Pemrograman Berorientasi Objek",
-    "className": "SI402",
-    "schedule": "Kamis, 10:40 - 13:10",
-    "sks": 3,
-    "semester": 4,
-    "status": "Online"
-  },
-  {
-    "course": "200202308 - Pemrograman Berorientasi Objek",
-    "className": "SI403",
-    "schedule": "Sabtu, 13:20 - 15:50",
-    "sks": 3,
-    "semester": 4,
-    "status": "Online"
-  },
-  {
-    "course": "200202307 - Pemrograman Visual",
-    "className": "SI401",
-    "schedule": "Sabtu, 13:20 - 15:50",
-    "sks": 3,
-    "semester": 4,
-    "status": "Online"
-  },
-  {
-    "course": "200202307 - Pemrograman Visual",
-    "className": "SI402",
-    "schedule": "Sabtu, 16:00 - 18:30",
-    "sks": 3,
-    "semester": 4,
-    "status": "Online"
-  },
-  {
-    "course": "200202307 - Pemrograman Visual",
-    "className": "SI403",
-    "schedule": "Kamis, 10:40 - 13:10",
-    "sks": 3,
-    "semester": 4,
-    "status": "Online"
-  },
-  {
-    "course": "200202214 - Sistem Informasi Akuntansi",
-    "className": "SI401",
+    "course": "200201302 - Komunikasi Data dan Jaringan Komputer",
+    "className": "SI303",
     "schedule": "Kamis, 08:00 - 10:30",
     "sks": 3,
-    "semester": 4,
+    "semester": 3,
     "status": "Online"
   },
   {
-    "course": "200202214 - Sistem Informasi Akuntansi",
-    "className": "SI402",
-    "schedule": "Kamis, 13:20 - 15:50",
+    "course": "200201300 - Pemrograman Lanjut",
+    "className": "SI301",
+    "schedule": "Kamis, 08:00 - 10:30",
     "sks": 3,
-    "semester": 4,
+    "semester": 3,
     "status": "Online"
   },
   {
-    "course": "200202214 - Sistem Informasi Akuntansi",
-    "className": "SI403",
+    "course": "200201300 - Pemrograman Lanjut",
+    "className": "SI302",
+    "schedule": "Kamis, 08:00 - 10:30",
+    "sks": 3,
+    "semester": 3,
+    "status": "Online"
+  },
+  {
+    "course": "200201300 - Pemrograman Lanjut",
+    "className": "SI303",
+    "schedule": "Senin, 13:20 - 15:50",
+    "sks": 3,
+    "semester": 3,
+    "status": "Online"
+  },
+  {
+    "course": "200501107 - Pendidikan Agama",
+    "className": "SI301",
+    "schedule": "Rabu, 10:00 - 11:40",
+    "sks": 2,
+    "semester": 3,
+    "status": "Online"
+  },
+  {
+    "course": "200501107 - Pendidikan Agama",
+    "className": "SI302",
+    "schedule": "Senin, 13:00 - 14:40",
+    "sks": 2,
+    "semester": 3,
+    "status": "Online"
+  },
+  {
+    "course": "200501107 - Pendidikan Agama",
+    "className": "SI303",
+    "schedule": "Kamis, 08:00 - 09:40",
+    "sks": 2,
+    "semester": 3,
+    "status": "Online"
+  },
+  {
+    "course": "200501102 - Pendidikan Kewarganegaraan",
+    "className": "SI301",
+    "schedule": "Selasa, 08:00 - 09:40",
+    "sks": 2,
+    "semester": 3,
+    "status": "Online"
+  },
+  {
+    "course": "200501102 - Pendidikan Kewarganegaraan",
+    "className": "SI302",
+    "schedule": "Rabu, 13:00 - 14:40",
+    "sks": 2,
+    "semester": 3,
+    "status": "Online"
+  },
+  {
+    "course": "200501102 - Pendidikan Kewarganegaraan",
+    "className": "SI303",
+    "schedule": "Jumat, 08:00 - 09:40",
+    "sks": 2,
+    "semester": 3,
+    "status": "Online"
+  },
+  {
+    "course": "200201301 - Sistem Basis Data",
+    "className": "SI301",
     "schedule": "Jumat, 13:20 - 15:50",
     "sks": 3,
-    "semester": 4,
+    "semester": 3,
     "status": "Online"
   },
   {
-    "course": "200202318 - Arsitektur Sistem Enterprise",
-    "className": "SI601",
-    "schedule": "Jumat, 15:30 - 18:00",
+    "course": "200201301 - Sistem Basis Data",
+    "className": "SI302",
+    "schedule": "Jumat, 16:00 - 18:30",
     "sks": 3,
-    "semester": 6,
+    "semester": 3,
     "status": "Online"
   },
   {
-    "course": "200202318 - Arsitektur Sistem Enterprise",
-    "className": "SI602",
-    "schedule": "Sabtu, 10:40 - 13:10",
+    "course": "200201301 - Sistem Basis Data",
+    "className": "SI303",
+    "schedule": "Selasa, 15:30 - 18:00",
     "sks": 3,
-    "semester": 6,
+    "semester": 3,
     "status": "Online"
   },
   {
-    "course": "200202318 - Arsitektur Sistem Enterprise",
-    "className": "SI603",
-    "schedule": "Rabu, 15:30 - 18:00",
+    "course": "200201213 - Statistika dan Probabilitas",
+    "className": "SI301",
+    "schedule": "Rabu, 13:20 - 15:50",
     "sks": 3,
-    "semester": 6,
+    "semester": 3,
     "status": "Online"
   },
   {
-    "course": "200202402 - Data Warehouse/ OLAP",
-    "className": "SI601",
-    "schedule": "Jumat, 08:00 - 10:30",
-    "sks": 3,
-    "semester": 6,
-    "status": "Online"
-  },
-  {
-    "course": "200202402 - Data Warehouse/ OLAP",
-    "className": "SI602",
-    "schedule": "Sabtu, 08:00 - 10:30",
-    "sks": 3,
-    "semester": 6,
-    "status": "Online"
-  },
-  {
-    "course": "200202317 - Enterprise Resource Planning",
-    "className": "SI601",
+    "course": "200201213 - Statistika dan Probabilitas",
+    "className": "SI302",
     "schedule": "Kamis, 16:00 - 18:30",
     "sks": 3,
-    "semester": 6,
+    "semester": 3,
     "status": "Online"
   },
   {
-    "course": "200202317 - Enterprise Resource Planning",
-    "className": "SI602",
-    "schedule": "Selasa, 16:00 - 18:30",
+    "course": "200201213 - Statistika dan Probabilitas",
+    "className": "SI303",
+    "schedule": "Senin, 08:00 - 10:30",
     "sks": 3,
-    "semester": 6,
-    "status": "Online"
-  },
-  {
-    "course": "200202317 - Enterprise Resource Planning",
-    "className": "SI603",
-    "schedule": "Selasa, 16:00 - 18:30",
-    "sks": 3,
-    "semester": 6,
+    "semester": 3,
     "status": "Online"
   },
   {
     "course": "200202315 - Kerja Praktek",
     "className": "SI601",
-    "schedule": "Minggu, 10:00 - 11:40",
+    "schedule": "Minggu, 13:00 - 14:40",
     "sks": 2,
     "semester": 6,
     "status": "Online"
   },
   {
-    "course": "200202403 - Knowledge Management",
-    "className": "SI601",
+    "course": "200201404 - Analisis Media Sosial",
+    "className": "SI701",
+    "schedule": "Kamis, 15:30 - 18:00",
+    "sks": 3,
+    "semester": 7,
+    "status": "Online"
+  },
+  {
+    "course": "200201404 - Analisis Media Sosial",
+    "className": "SI702",
+    "schedule": "Sabtu, 08:00 - 10:30",
+    "sks": 3,
+    "semester": 7,
+    "status": "Online"
+  },
+  {
+    "course": "200201404 - Analisis Media Sosial",
+    "className": "SI703",
+    "schedule": "Rabu, 10:40 - 13:10",
+    "sks": 3,
+    "semester": 7,
+    "status": "Online"
+  },
+  {
+    "course": "200201405 - E-Government",
+    "className": "SI701",
+    "schedule": "Jumat, 15:30 - 18:00",
+    "sks": 3,
+    "semester": 7,
+    "status": "Online"
+  },
+  {
+    "course": "200201405 - E-Government",
+    "className": "SI702",
+    "schedule": "Kamis, 15:30 - 18:00",
+    "sks": 3,
+    "semester": 7,
+    "status": "Online"
+  },
+  {
+    "course": "200201319 - Manajemen Proyek Sistem Informasi",
+    "className": "SI701",
+    "schedule": "Sabtu, 10:40 - 13:10",
+    "sks": 3,
+    "semester": 7,
+    "status": "Online"
+  },
+  {
+    "course": "200201319 - Manajemen Proyek Sistem Informasi",
+    "className": "SI702",
     "schedule": "Jumat, 08:00 - 10:30",
     "sks": 3,
-    "semester": 6,
+    "semester": 7,
     "status": "Online"
   },
   {
-    "course": "200202403 - Knowledge Management",
-    "className": "SI602",
-    "schedule": "Senin, 16:00 - 18:30",
+    "course": "200201319 - Manajemen Proyek Sistem Informasi",
+    "className": "SI703",
+    "schedule": "Selasa, 13:20 - 15:50",
     "sks": 3,
-    "semester": 6,
+    "semester": 7,
     "status": "Online"
   },
   {
-    "course": "200202403 - Knowledge Management",
-    "className": "SI603",
+    "course": "200201320 - Manajemen Resiko dan Kualitas Sistem Informasi",
+    "className": "SI701",
+    "schedule": "Rabu, 15:30 - 18:00",
+    "sks": 3,
+    "semester": 7,
+    "status": "Online"
+  },
+  {
+    "course": "200201320 - Manajemen Resiko dan Kualitas Sistem Informasi",
+    "className": "SI702",
+    "schedule": "Jumat, 10:40 - 13:10",
+    "sks": 3,
+    "semester": 7,
+    "status": "Online"
+  },
+  {
+    "course": "200201320 - Manajemen Resiko dan Kualitas Sistem Informasi",
+    "className": "SI703",
+    "schedule": "Sabtu, 13:20 - 15:50",
+    "sks": 3,
+    "semester": 7,
+    "status": "Online"
+  },
+  {
+    "course": "200201320 - Manajemen Resiko dan Kualitas Sistem Informasi",
+    "className": "SI704",
+    "schedule": "Selasa, 13:20 - 15:50",
+    "sks": 3,
+    "semester": 7,
+    "status": "Online"
+  },
+  {
+    "course": "200201323 - Pemrograman Berbasis Perangkat Bergerak",
+    "className": "SI701",
+    "schedule": "Selasa, 13:20 - 15:50",
+    "sks": 3,
+    "semester": 7,
+    "status": "Online"
+  },
+  {
+    "course": "200201323 - Pemrograman Berbasis Perangkat Bergerak",
+    "className": "SI702",
     "schedule": "Senin, 10:40 - 13:10",
     "sks": 3,
-    "semester": 6,
+    "semester": 7,
     "status": "Online"
   },
   {
-    "course": "200202316 - Metodologi Riset dan Penulisan Ilmiah Sistem Informasi",
-    "className": "SI601",
-    "schedule": "Senin, 10:00 - 11:40",
-    "sks": 2,
-    "semester": 6,
-    "status": "Online"
-  },
-  {
-    "course": "200202316 - Metodologi Riset dan Penulisan Ilmiah Sistem Informasi",
-    "className": "SI602",
-    "schedule": "Sabtu, 08:00 - 09:40",
-    "sks": 2,
-    "semester": 6,
-    "status": "Online"
-  },
-  {
-    "course": "200202316 - Metodologi Riset dan Penulisan Ilmiah Sistem Informasi",
-    "className": "SI603",
-    "schedule": "Jumat, 08:00 - 10:30",
-    "sks": 2,
-    "semester": 6,
-    "status": "Online"
-  },
-  {
-    "course": "200002102 - Pendidikan Kewirausahaan",
-    "className": "SI601",
-    "schedule": "Selasa, 08:00 - 09:40",
-    "sks": 2,
-    "semester": 6,
-    "status": "Online"
-  },
-  {
-    "course": "200002102 - Pendidikan Kewirausahaan",
-    "className": "SI602",
-    "schedule": "Rabu, 08:00 - 09:40",
-    "sks": 2,
-    "semester": 6,
-    "status": "Online"
-  },
-  {
-    "course": "200202314 - Rekayasa Perangkat Lunak",
-    "className": "SI601",
-    "schedule": "Senin, 16:00 - 18:30",
+    "course": "200201321 - Tata Kelola dan Audit Sistem Informasi",
+    "className": "SI701",
+    "schedule": "Sabtu, 08:00 - 10:30",
     "sks": 3,
-    "semester": 6,
+    "semester": 7,
     "status": "Online"
   },
   {
-    "course": "200202314 - Rekayasa Perangkat Lunak",
-    "className": "SI602",
+    "course": "200201321 - Tata Kelola dan Audit Sistem Informasi",
+    "className": "SI702",
     "schedule": "Selasa, 08:00 - 10:30",
     "sks": 3,
-    "semester": 6,
+    "semester": 7,
     "status": "Online"
   },
   {
-    "course": "200202407 - Big Data For Business",
-    "className": "SI801",
-    "schedule": "Kamis, 13:20 - 15:50",
+    "course": "200201321 - Tata Kelola dan Audit Sistem Informasi",
+    "className": "SI703",
+    "schedule": "Senin, 15:30 - 18:00",
     "sks": 3,
-    "semester": 8,
+    "semester": 7,
     "status": "Online"
   },
   {
-    "course": "200202407 - Big Data For Business",
-    "className": "SI802",
-    "schedule": "Senin, 08:00 - 10:30",
+    "course": "200201321 - Tata Kelola dan Audit Sistem Informasi",
+    "className": "SI704",
+    "schedule": "Jumat, 13:20 - 15:50",
     "sks": 3,
-    "semester": 8,
+    "semester": 7,
     "status": "Online"
   },
   {
-    "course": "200202327 - Etika Profesi Sistem Informasi",
-    "className": "SI801",
-    "schedule": "Sabtu, 17:00 - 18:40",
-    "sks": 2,
-    "semester": 8,
-    "status": "Online"
-  },
-  {
-    "course": "200202327 - Etika Profesi Sistem Informasi",
-    "className": "SI802",
-    "schedule": "Rabu, 10:40 - 13:10",
-    "sks": 2,
-    "semester": 8,
-    "status": "Online"
-  },
-  {
-    "course": "200202406 - Financial Technology",
-    "className": "SI801",
-    "schedule": "Kamis, 13:20 - 15:50",
+    "course": "200201322 - Testing dan Implementasi Sistem Informasi",
+    "className": "SI701",
+    "schedule": "Sabtu, 13:20 - 15:50",
     "sks": 3,
-    "semester": 8,
+    "semester": 7,
     "status": "Online"
   },
   {
-    "course": "200202406 - Financial Technology",
-    "className": "SI802",
-    "schedule": "Senin, 08:00 - 10:30",
+    "course": "200201322 - Testing dan Implementasi Sistem Informasi",
+    "className": "SI702",
+    "schedule": "Senin, 15:20 - 17:00",
     "sks": 3,
-    "semester": 8,
+    "semester": 7,
     "status": "Online"
   },
   {
-    "course": "200202326 - Inovasi Kreatif Digital",
-    "className": "SI801",
-    "schedule": "Sabtu, 15:20 - 17:00",
-    "sks": 2,
-    "semester": 8,
-    "status": "Online"
-  },
-  {
-    "course": "200202326 - Inovasi Kreatif Digital",
-    "className": "SI802",
-    "schedule": "Senin, 08:00 - 09:40",
-    "sks": 2,
-    "semester": 8,
-    "status": "Online"
-  },
-  {
-    "course": "200202325 - Interpersonal Skill",
-    "className": "SI801",
-    "schedule": "Kamis, 10:00 - 11:40",
-    "sks": 2,
-    "semester": 8,
-    "status": "Online"
-  },
-  {
-    "course": "200202325 - Interpersonal Skill",
-    "className": "SI802",
-    "schedule": "Jumat, 17:00 - 18:40",
-    "sks": 2,
-    "semester": 8,
+    "course": "200201322 - Testing dan Implementasi Sistem Informasi",
+    "className": "SI703",
+    "schedule": "Kamis, 08:00 - 10:30",
+    "sks": 3,
+    "semester": 7,
     "status": "Online"
   },
   {
@@ -695,4 +792,8 @@ window.SCHEDULE_DATA = [
     "semester": 8,
     "status": "Online"
   }
-];
+]
+};
+
+window.SCHEDULE_DATA = window.SCHEDULE_PERIODS["ganjil-26-27"].data;
+

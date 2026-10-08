@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pilihan Kelas UNSIA (Unofficial)</title>
+    <title>Pilihan Kelas UNSIA - PJJ Sistem Informasi</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -14,8 +14,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
       :root {
-        --canvas: #eef4fc;
-        --ink: #15233f;
+        --canvas: #edf3fa;
+        --ink: #0f1c34;
       }
 
       body {
@@ -28,136 +28,576 @@
       }
 
       .panel {
-        border: 1px solid rgba(255, 255, 255, 0.7);
-        border-radius: 28px;
-        background: rgba(255, 255, 255, 0.75);
-        box-shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
-        backdrop-filter: blur(18px);
+        border: 1px solid rgba(255, 255, 255, 0.75);
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.82);
+        box-shadow: 0 12px 40px rgba(15, 23, 42, 0.06);
+        backdrop-filter: blur(16px);
       }
 
       .soft-ring {
         box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.08);
       }
+
+      .custom-scroll::-webkit-scrollbar {
+        height: 6px;
+        width: 6px;
+      }
+      .custom-scroll::-webkit-scrollbar-thumb {
+        background: rgba(15, 23, 42, 0.16);
+        border-radius: 4px;
+      }
+
+      @media print {
+        body {
+          background: #ffffff !important;
+          color: #000000 !important;
+        }
+        .no-print {
+          display: none !important;
+        }
+        #printReport {
+          display: block !important;
+        }
+      }
     </style>
   </head>
   <body>
-    <div class="relative isolate overflow-hidden">
+    <!-- Main Screen Content (Hidden in Print) -->
+    <div class="no-print relative isolate overflow-hidden min-h-screen pb-24">
       <div
-        class="absolute inset-x-0 top-0 -z-10 h-[28rem] bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.22),_transparent_38%),radial-gradient(circle_at_top_right,_rgba(234,179,8,0.2),_transparent_32%)]"
+        class="absolute inset-x-0 top-0 -z-10 h-72 bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.18),_transparent_36%),radial-gradient(circle_at_top_right,_rgba(234,179,8,0.16),_transparent_30%)]"
       ></div>
-      <div class="absolute left-8 top-28 -z-10 h-40 w-40 rounded-full bg-blue-700/15 blur-3xl"></div>
-      <div class="absolute bottom-24 right-8 -z-10 h-52 w-52 rounded-full bg-amber-300/25 blur-3xl"></div>
+      <div class="absolute left-6 top-20 -z-10 h-32 w-32 rounded-full bg-blue-600/10 blur-3xl"></div>
+      <div class="absolute bottom-20 right-6 -z-10 h-40 w-40 rounded-full bg-amber-300/15 blur-3xl"></div>
 
-      <main class="mx-auto flex min-h-screen max-w-7xl flex-col gap-6 px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
-        <section class="panel px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
-          <div class="grid gap-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
-            <div class="space-y-5">
-              <div class="flex items-center gap-4">
+      <main class="mx-auto flex max-w-7xl flex-col gap-3.5 px-3 py-3.5 sm:px-5 sm:py-5 lg:px-6">
+        <!-- Compact Hero Header -->
+        <section class="panel px-4 py-3.5 sm:px-6 sm:py-4">
+          <div class="flex flex-col gap-3.5 lg:flex-row lg:items-center lg:justify-between">
+            <div class="space-y-2.5">
+              <div class="flex items-center gap-3">
                 <img
                   src="https://pengikut-raja-capybara.github.io/konversikan/UNSIA-LOGO.png"
                   alt="Logo Universitas Siber Asia"
-                  class="h-14 w-14 rounded-2xl border border-blue-100 bg-white p-2 shadow-sm"
+                  class="h-10 w-10 sm:h-11 sm:w-11 rounded-xl border border-blue-100 bg-white p-1.5 shadow-xs shrink-0"
                 />
-                <span class="inline-flex items-center rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold tracking-[0.18em] text-blue-800 uppercase">Universitas Siber Asia</span>
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="inline-flex items-center rounded-full bg-blue-50 px-2.5 py-0.5 text-[10px] font-bold tracking-[0.14em] text-blue-800 uppercase">Universitas Siber Asia</span>
+                    <span class="inline-flex items-center rounded-full bg-blue-100 text-blue-900 font-bold px-2 py-0.5 text-[10px]">PJJ Sistem Informasi</span>
+                  </div>
+                  <h1 class="text-lg sm:text-xl lg:text-2xl font-extrabold tracking-tight text-slate-900 leading-snug">Pilihan Kelas UNSIA — PJJ Sistem Informasi</h1>
+                </div>
               </div>
-              <div class="space-y-3">
-                <h1 class="max-w-3xl text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">Referensi Pilihan Kelas untuk Membantu Susun KRS</h1>
-                <p class="max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
-                  Data diambil dari portal pengisian KRS sebagai gambaran awal. Karena jadwal bisa berubah sewaktu-waktu, pastikan tetap cross-check dengan halaman resmi.
-                </p>
-              </div>
-              <div id="heroMeta" class="flex flex-wrap gap-3 text-sm text-slate-600"></div>
+              <p class="max-w-2xl text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Referensi jadwal kuliah & simulasi perencana KRS mahasiswa PJJ Sistem Informasi. Pantau beban SKS dan hindari jadwal bentrok sebelum pengisian KRS resmi.
+              </p>
+              <div id="heroMeta" class="flex flex-wrap gap-1.5 text-xs text-slate-600"></div>
             </div>
-            <div id="statsGrid" class="grid gap-3 sm:grid-cols-2 lg:grid-cols-1"></div>
+            <div id="statsGrid" class="grid grid-cols-2 gap-2 sm:gap-2.5 lg:w-[420px] shrink-0"></div>
           </div>
         </section>
 
-        <section class="panel px-5 py-5 sm:px-6">
-          <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-            <div class="grid flex-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
-              <label class="space-y-2">
-                <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Cari</span>
-                <input
-                  id="searchInput"
-                  type="text"
-                  placeholder="Cari mata kuliah, kelas, atau jadwal"
-                  class="soft-ring w-full rounded-2xl border-0 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:ring-2 focus:ring-blue-700/30"
-                />
+        <!-- Dismissible Transcript Validity Warning Banner -->
+        <section id="transcriptValidityBanner" class="hidden panel border-amber-300 bg-amber-50/95 p-3 text-amber-900 shadow-xs">
+          <div class="flex items-start justify-between gap-3">
+            <div class="flex items-start gap-2.5">
+              <span class="text-base leading-none">⚠️</span>
+              <div class="text-xs">
+                <p class="font-bold text-amber-900">Perhatian: Indikasi Transkrip Nilai Lama</p>
+                <p id="transcriptValidityMessage" class="mt-0.5 text-amber-800 leading-relaxed"></p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 shrink-0">
+              <button
+                id="btnUpdateTranscriptPrompt"
+                type="button"
+                class="rounded-lg bg-amber-600 hover:bg-amber-700 px-2.5 py-1 text-[11px] font-bold text-white transition cursor-pointer"
+              >
+                Perbarui
+              </button>
+              <button
+                id="btnDismissValidityWarning"
+                type="button"
+                class="rounded-lg bg-amber-100 hover:bg-amber-200 p-1 text-amber-800 transition cursor-pointer"
+                aria-label="Tutup peringatan"
+              >
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Compact Student Progress Card (Active when transcript exists) -->
+        <section id="transcriptProgressCard" class="hidden panel px-4 py-3 sm:px-5 sm:py-3.5 bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 text-white shadow-md">
+          <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+            <div class="flex items-center gap-3 min-w-0">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 font-bold text-emerald-400 border border-white/15">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+              </div>
+              <div class="min-w-0">
+                <div class="flex flex-wrap items-center gap-2">
+                  <h3 id="transcriptStudentName" class="font-extrabold text-xs sm:text-sm text-white truncate">ANGGA ALFIANSAH</h3>
+                  <span id="transcriptStudentNim" class="rounded-md bg-white/15 px-2 py-0.5 text-[10px] font-mono text-blue-200">240101010032</span>
+                  <span id="transcriptDateBadge" class="hidden sm:inline-flex rounded-md bg-white/10 px-2 py-0.5 text-[10px] text-slate-300">22 Sep 2026</span>
+                </div>
+                <p id="transcriptStatsSummary" class="text-xs text-slate-300 mt-0.5">84 / 144 SKS Lulus (58.3%) • IPK: 4.00 • Sisa 60 SKS lagi</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 shrink-0">
+              <div class="w-32 sm:w-40 hidden md:block">
+                <div class="flex justify-between text-[10px] text-slate-300 mb-1">
+                  <span>Progres Kelulusan</span>
+                  <span id="transcriptProgressPercent">58%</span>
+                </div>
+                <div class="h-2 w-full rounded-full bg-white/15 overflow-hidden">
+                  <div id="transcriptProgressBar" class="h-full rounded-full bg-emerald-400 transition-all duration-500" style="width: 58%"></div>
+                </div>
+              </div>
+              <button
+                id="btnManageTranscript"
+                type="button"
+                class="inline-flex items-center gap-1.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 px-3 py-1.5 text-xs font-semibold text-white transition cursor-pointer"
+              >
+                <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                </svg>
+                <span>Kelola Transkrip</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Compact Filters & Toolbar -->
+        <section class="panel px-4 py-3 sm:px-5 sm:py-3.5">
+          <div class="flex flex-col gap-2.5">
+            <div class="grid gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+              <label class="space-y-1">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Cari Kelas / MK</span>
+                <div class="relative">
+                  <input
+                    id="searchInput"
+                    type="text"
+                    placeholder="Nama MK, kode, kelas..."
+                    class="soft-ring w-full rounded-xl border-0 bg-white py-1.5 pl-3 pr-7 text-xs sm:text-sm text-slate-900 outline-none transition focus:ring-2 focus:ring-blue-700/30"
+                  />
+                  <svg class="pointer-events-none absolute right-2.5 top-2.5 h-3.5 w-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </div>
               </label>
 
-              <label class="space-y-2">
-                <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Semester</span>
-                <select id="semesterFilter" class="soft-ring w-full rounded-2xl border-0 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:ring-2 focus:ring-blue-700/30">
+              <label class="space-y-1">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Periode Jadwal</span>
+                <select id="periodFilter" class="soft-ring w-full rounded-xl border-0 bg-white py-1.5 px-2.5 text-xs sm:text-sm text-slate-900 font-medium outline-none transition focus:ring-2 focus:ring-blue-700/30">
+                </select>
+              </label>
+
+              <label class="space-y-1">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Status Belajar</span>
+                <select id="statusFilter" class="soft-ring w-full rounded-xl border-0 bg-white py-1.5 px-2.5 text-xs sm:text-sm text-slate-900 font-medium outline-none transition focus:ring-2 focus:ring-blue-700/30">
+                  <option value="all">Semua kelas</option>
+                  <option value="not_taken">Hanya belum diambil</option>
+                  <option value="passed">Sudah lulus</option>
+                </select>
+              </label>
+
+              <label class="space-y-1">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Semester</span>
+                <select id="semesterFilter" class="soft-ring w-full rounded-xl border-0 bg-white py-1.5 px-2.5 text-xs sm:text-sm text-slate-900 outline-none transition focus:ring-2 focus:ring-blue-700/30">
                   <option value="all">Semua semester</option>
                 </select>
               </label>
 
-              <label class="space-y-2">
-                <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Hari</span>
-                <select id="dayFilter" class="soft-ring w-full rounded-2xl border-0 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:ring-2 focus:ring-blue-700/30">
+              <label class="space-y-1">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Hari Kuliah</span>
+                <select id="dayFilter" class="soft-ring w-full rounded-xl border-0 bg-white py-1.5 px-2.5 text-xs sm:text-sm text-slate-900 outline-none transition focus:ring-2 focus:ring-blue-700/30">
                   <option value="all">Semua hari</option>
                 </select>
               </label>
 
-              <label class="space-y-2">
-                <span class="text-xs font-bold uppercase tracking-[0.2em] text-slate-500">Urutkan</span>
-                <select id="sortFilter" class="soft-ring w-full rounded-2xl border-0 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition focus:ring-2 focus:ring-blue-700/30">
-                  <option value="course">Mata kuliah A-Z</option>
-                  <option value="semester">Semester terendah</option>
-                  <option value="day">Hari terdekat</option>
+              <label class="space-y-1">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500">Urutkan</span>
+                <select id="sortFilter" class="soft-ring w-full rounded-xl border-0 bg-white py-1.5 px-2.5 text-xs sm:text-sm text-slate-900 outline-none transition focus:ring-2 focus:ring-blue-700/30">
+                  <option value="semester" selected>Semester (1 - 8)</option>
+                  <option value="course">Mata kuliah (A-Z)</option>
                   <option value="sks">SKS terbesar</option>
                 </select>
               </label>
             </div>
 
-            <div class="rounded-2xl bg-blue-950 px-4 py-3 text-sm text-white shadow-lg shadow-blue-900/20">
-              <p class="font-semibold">Ringkasan hasil</p>
-              <p id="resultSummary" class="mt-1 text-slate-300">Memuat data jadwal...</p>
+            <!-- Toolbar Footer Status -->
+            <div class="flex flex-wrap items-center justify-between gap-2 border-t border-black/5 pt-2">
+              <div class="flex items-center gap-2 text-xs text-slate-600 font-medium">
+                <span id="resultSummary">Memuat data kelas...</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button
+                  id="btnOpenTranscriptModal"
+                  type="button"
+                  class="inline-flex items-center gap-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 border border-emerald-200/80 px-3 py-1.5 text-xs font-bold text-emerald-800 transition cursor-pointer active:scale-95 shadow-2xs"
+                >
+                  <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <span id="transcriptBtnText">Upload Transkrip PDF</span>
+                  <span id="transcriptBtnBadge" class="hidden rounded-full bg-emerald-700 px-1.5 py-0.2 text-[10px] font-black text-white">✓</span>
+                </button>
+
+                <button
+                  id="btnQuickViewKrs"
+                  type="button"
+                  class="inline-flex items-center gap-1.5 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200/80 px-3 py-1.5 text-xs font-bold text-blue-800 transition cursor-pointer active:scale-95 shadow-2xs"
+                >
+                  <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                  </svg>
+                  <span>Rencana KRS</span>
+                  <span id="headerKrsBadge" class="rounded-full bg-blue-700 px-1.5 py-0.2 text-[10px] font-black text-white">0</span>
+                </button>
+              </div>
             </div>
           </div>
         </section>
 
-        <section id="emptyState" class="panel hidden px-6 py-10 text-center sm:px-8">
-          <p class="text-lg font-semibold text-slate-900">Data tidak ditemukan.</p>
-          <p class="mt-2 text-sm text-slate-600">Coba ubah kata kunci pencarian atau longgarkan filter semester dan hari.</p>
+        <!-- Empty State -->
+        <section id="emptyState" class="panel hidden px-4 py-10 text-center sm:px-6">
+          <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-700 mb-2.5">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </div>
+          <p class="text-base font-bold text-slate-900">Data kelas tidak ditemukan.</p>
+          <p class="mt-1 text-xs text-slate-600 max-w-sm mx-auto">Coba ubah kata kunci pencarian atau sesuaikan filter periode, status belajar, semester, atau hari.</p>
         </section>
 
-        <section id="resultsSection" class="grid gap-6">
+        <!-- Main Results Section (Compact Table & Cards - Extends Downwards Naturally) -->
+        <section id="resultsSection" class="grid gap-3.5">
+          <!-- Desktop Compact Table View -->
           <div class="hidden panel overflow-hidden lg:block">
-            <div class="border-b border-black/5 px-6 py-4">
-              <h2 class="text-lg font-bold text-slate-900">Tabel pilihan kelas</h2>
+            <div class="flex items-center justify-between border-b border-black/5 px-4 py-2.5">
+              <div>
+                <h2 class="text-sm font-bold text-slate-900">Daftar Pilihan Kelas</h2>
+                <p class="text-[11px] text-slate-500">Klik "+ Pilih" untuk menyusun simulasi KRS tanpa jadwal bentrok.</p>
+              </div>
             </div>
             <div class="overflow-x-auto">
-              <table class="min-w-full text-sm">
-                <thead class="bg-blue-900 text-left text-xs font-bold uppercase tracking-[0.2em] text-white">
+              <table class="min-w-full text-xs">
+                <thead class="sticky top-0 bg-blue-900 text-left text-[11px] font-bold uppercase tracking-wider text-white shadow-xs z-10">
                   <tr>
-                    <th class="px-6 py-4">Mata kuliah</th>
-                    <th class="px-4 py-4">Kelas</th>
-                    <th class="px-4 py-4">Jadwal</th>
-                    <th class="px-4 py-4">SKS</th>
-                    <th class="px-4 py-4">Semester</th>
-                    <th class="px-6 py-4">Status</th>
+                    <th class="px-3 py-2.5 text-center w-20">Pilih</th>
+                    <th class="px-4 py-2.5">Mata Kuliah</th>
+                    <th class="px-3 py-2.5 text-center w-20">Kelas</th>
+                    <th class="px-3 py-2.5">Jadwal Kuliah</th>
+                    <th class="px-3 py-2.5 text-center w-16">SKS</th>
+                    <th class="px-3 py-2.5 text-center w-20">Semester</th>
+                    <th class="px-4 py-2.5 text-center w-24">Status</th>
                   </tr>
                 </thead>
-                <tbody id="desktopTableBody" class="divide-y divide-black/5 bg-white/70"></tbody>
+                <tbody id="desktopTableBody" class="divide-y divide-black/5 bg-white/75"></tbody>
               </table>
             </div>
           </div>
 
-          <div class="panel px-5 py-5 sm:px-6 lg:hidden">
-            <div class="flex items-center justify-between gap-3">
+          <!-- Mobile Compact Cards View -->
+          <div class="panel px-3.5 py-3.5 sm:px-5 sm:py-4 lg:hidden">
+            <div class="flex items-center justify-between gap-2 border-b border-black/5 pb-2.5">
               <div>
-                <h2 class="text-lg font-bold text-slate-900">Kartu cepat</h2>
+                <h2 class="text-sm font-bold text-slate-900">Daftar Pilihan Kelas</h2>
+                <p class="text-[11px] text-slate-500">Ketuk "+ Pilih" untuk menambahkan kelas.</p>
               </div>
             </div>
-            <div id="mobileList" class="mt-5 grid gap-4"></div>
+            <div id="mobileList" class="mt-3 grid gap-2.5"></div>
           </div>
         </section>
       </main>
+
+      <!-- Sleek Floating Bottom Dock for KRS Plan -->
+      <aside
+        id="krsDock"
+        class="fixed inset-x-0 bottom-3 z-40 mx-auto max-w-2xl px-3 transition-all duration-300 translate-y-28 opacity-0 pointer-events-none"
+        aria-live="polite"
+      >
+        <div class="flex items-center justify-between gap-3 rounded-2xl border border-white/80 bg-slate-950/92 px-4 py-2.5 text-white shadow-2xl backdrop-blur-2xl ring-1 ring-white/10 sm:px-5">
+          <div class="flex items-center gap-2.5 min-w-0">
+            <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-600 font-bold text-white shadow-md shadow-blue-600/30">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-1.5">
+                <h3 class="font-extrabold text-xs sm:text-sm text-white truncate">Rencana KRS Saya</h3>
+                <span id="dockConflictBadge" class="hidden rounded-full bg-rose-500/20 border border-rose-500/40 px-2 py-0.2 text-[10px] font-bold text-rose-300">
+                  ⚠️ Ada Bentrok
+                </span>
+              </div>
+              <p id="dockSubtitle" class="text-[11px] text-slate-300 truncate">0 MK • 0 / 24 SKS</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <button
+              id="btnOpenDockDrawer"
+              type="button"
+              class="inline-flex items-center gap-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 px-3 py-1.5 text-xs font-bold text-white shadow-md transition active:scale-95 cursor-pointer"
+            >
+              <span>Lihat Rencana</span>
+              <span id="dockCountBadge" class="flex h-4 w-4 items-center justify-center rounded-full bg-white text-[10px] font-black text-blue-900">0</span>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Compact Modal / Slide-over Drawer for KRS Plan -->
+      <div id="krsModal" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true">
+        <!-- Backdrop Blur -->
+        <div id="krsModalBackdrop" class="fixed inset-0 bg-slate-900/55 backdrop-blur-xs transition-opacity"></div>
+
+        <div class="fixed inset-0 z-10 overflow-y-auto p-3 sm:p-5 flex items-center justify-center">
+          <div class="relative w-full max-w-2xl rounded-2xl border border-white/80 bg-white/95 p-4 sm:p-6 shadow-2xl backdrop-blur-2xl ring-1 ring-black/5 flex flex-col max-h-[88vh]">
+            <!-- Modal Header -->
+            <div class="flex items-start justify-between gap-3 border-b border-black/5 pb-3">
+              <div>
+                <span class="inline-flex items-center rounded-full bg-blue-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-blue-800">Simulasi Mandiri</span>
+                <h3 class="mt-0.5 text-lg sm:text-xl font-extrabold text-slate-900">Rancangan KRS Saya</h3>
+                <p id="modalPeriodSubtitle" class="text-xs text-slate-500 mt-0.5">Periode: Memuat data...</p>
+              </div>
+              <button
+                id="btnCloseModal"
+                type="button"
+                class="rounded-xl bg-slate-100 hover:bg-slate-200 p-1.5 text-slate-500 hover:text-slate-800 transition cursor-pointer"
+                aria-label="Tutup modal"
+              >
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Modal Content (Scrollable) -->
+            <div class="flex-1 overflow-y-auto py-3 space-y-3 pr-1 custom-scroll">
+              <!-- Conflict Warning Box -->
+              <div id="modalConflictBox" class="hidden rounded-xl border border-rose-200 bg-rose-50/90 p-3 text-rose-900">
+                <div class="flex items-start gap-2.5">
+                  <span class="text-base">⚠️</span>
+                  <div class="flex-1 text-xs">
+                    <p class="font-bold text-rose-800">Perhatian: Ditemukan Jadwal Bentrok!</p>
+                    <ul id="modalConflictList" class="mt-1 list-disc pl-3.5 space-y-0.5 text-rose-700"></ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SKS Usage Card with Graduation Projection -->
+              <div class="rounded-xl bg-slate-50 border border-slate-200/70 p-3">
+                <div class="flex items-center justify-between text-xs">
+                  <span class="font-bold text-slate-700">Akumulasi Beban SKS Semester Ini</span>
+                  <span id="modalSksValue" class="font-extrabold text-blue-700 text-sm">0 / 24 SKS</span>
+                </div>
+                <div class="mt-2 h-2 w-full rounded-full bg-slate-200 overflow-hidden">
+                  <div id="modalSksProgress" class="h-full rounded-full bg-blue-600 transition-all duration-300" style="width: 0%"></div>
+                </div>
+                <div class="mt-2 flex flex-wrap items-center justify-between gap-1 text-[11px]">
+                  <p id="modalSksAdvice" class="text-slate-500">Maksimal batas pengambilan reguler adalah 24 SKS.</p>
+                  <p id="modalGraduationProjection" class="hidden font-bold text-emerald-700"></p>
+                </div>
+              </div>
+
+              <!-- List of Selected Classes -->
+              <div>
+                <h4 class="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">Daftar Kelas Dipilih</h4>
+                <div id="modalClassList" class="space-y-2"></div>
+              </div>
+            </div>
+
+            <!-- Modal Footer Toolbar -->
+            <div class="border-t border-black/5 pt-3 flex flex-wrap items-center justify-between gap-2">
+              <button
+                id="btnResetKrs"
+                type="button"
+                class="rounded-xl border border-rose-200 bg-white hover:bg-rose-50 px-3 py-1.5 text-xs font-semibold text-rose-600 transition cursor-pointer"
+              >
+                Reset Pilihan
+              </button>
+
+              <div class="flex flex-wrap items-center gap-1.5">
+                <button
+                  id="btnCopyWa"
+                  type="button"
+                  class="inline-flex items-center gap-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 px-3 py-1.5 text-xs font-bold text-white shadow-xs transition cursor-pointer active:scale-95"
+                >
+                  <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.057-2.22-.572-1.815-.75-2.984-2.589-3.076-2.709-.091-.121-.734-.977-.734-1.862 0-.886.463-1.32.628-1.498.165-.178.36-.223.48-.223.121 0 .241.002.348.007.113.005.263-.043.411.314.156.376.533 1.297.579 1.391.047.094.078.204.015.326-.062.122-.093.199-.186.309-.093.109-.196.244-.28.328-.093.093-.19.195-.082.381.108.187.48 1.054 1.229 1.517.581.36 1.066.476 1.217.545.152.069.241.061.332-.043.091-.104.389-.452.493-.607.104-.155.207-.129.349-.077.142.052.905.427 1.06.505.156.077.26.116.299.181.039.065.039.377-.105.782z"/>
+                  </svg>
+                  <span>Salin ke WhatsApp</span>
+                </button>
+
+                <button
+                  id="btnPrintKrs"
+                  type="button"
+                  class="inline-flex items-center gap-1.5 rounded-xl bg-blue-700 hover:bg-blue-800 px-3 py-1.5 text-xs font-bold text-white shadow-xs transition cursor-pointer active:scale-95"
+                >
+                  <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                  </svg>
+                  <span>Cetak / PDF</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Upload / Kelola Transkrip PDF -->
+      <div id="transcriptModal" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true">
+        <div id="transcriptModalBackdrop" class="fixed inset-0 bg-slate-900/55 backdrop-blur-xs transition-opacity"></div>
+        <div class="fixed inset-0 z-10 overflow-y-auto p-3 sm:p-5 flex items-center justify-center">
+          <div class="relative w-full max-w-lg rounded-2xl border border-white/80 bg-white/95 p-5 sm:p-6 shadow-2xl backdrop-blur-2xl ring-1 ring-black/5 flex flex-col">
+            <div class="flex items-start justify-between gap-3 border-b border-black/5 pb-3">
+              <div>
+                <span class="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-800">Progres Belajar</span>
+                <h3 class="mt-0.5 text-lg font-extrabold text-slate-900">Kelola Transkrip Nilai</h3>
+                <p class="text-xs text-slate-500 mt-0.5">Unggah berkas PDF transkrip sementara resmi dari portal UNSIA.</p>
+              </div>
+              <button
+                id="btnCloseTranscriptModal"
+                type="button"
+                class="rounded-xl bg-slate-100 hover:bg-slate-200 p-1.5 text-slate-500 hover:text-slate-800 transition cursor-pointer"
+                aria-label="Tutup modal"
+              >
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            <div class="py-4 space-y-3.5">
+              <!-- Dropzone Upload -->
+              <div
+                id="transcriptDropzone"
+                class="border-2 border-dashed border-blue-200 hover:border-blue-500 rounded-2xl p-5 text-center transition cursor-pointer bg-blue-50/40 hover:bg-blue-50/70"
+              >
+                <input id="transcriptFileInput" type="file" accept=".pdf" class="hidden" />
+                <div class="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-blue-700 mb-2">
+                  <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                  </svg>
+                </div>
+                <p class="text-xs font-bold text-slate-800">Klik atau seret berkas PDF transkrip ke sini</p>
+                <p class="text-[11px] text-slate-500 mt-0.5">Mendukung berkas transkrip nilai resmi UNSIA (format .pdf)</p>
+              </div>
+
+              <!-- Loading Indicator -->
+              <div id="transcriptLoadingSpinner" class="hidden text-center py-4 text-xs font-semibold text-blue-700">
+                <div class="inline-block animate-spin rounded-full h-6 w-6 border-2 border-blue-600 border-t-transparent mb-1"></div>
+                <p>Membaca dan memproses teks transkrip di browser...</p>
+              </div>
+
+              <!-- Preview Result Container -->
+              <div id="transcriptPreviewContainer" class="hidden rounded-xl border border-slate-200 bg-slate-50 p-3.5 space-y-2 text-xs">
+                <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+                  <div class="min-w-0 pr-3">
+                    <p id="previewStudentName" class="font-bold text-slate-900 truncate"></p>
+                    <p id="previewStudentNim" class="text-[11px] text-slate-500 font-mono truncate"></p>
+                  </div>
+                  <div class="text-right shrink-0">
+                    <p id="previewStudentIpk" class="text-sm font-black text-emerald-700"></p>
+                    <p id="previewStudentSks" class="text-[11px] text-slate-600 font-bold"></p>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between text-[11px] text-slate-600">
+                  <span>Tanggal Transkrip: <strong id="previewTranscriptDate" class="text-slate-800">-</strong></span>
+                  <span id="previewCourseCount" class="font-semibold text-blue-700">- MK terdata</span>
+                </div>
+              </div>
+
+              <div class="rounded-xl bg-blue-50/70 border border-blue-200/60 p-2.5 text-[11px] text-blue-900 leading-relaxed">
+                🔒 <strong>Privasi Terjamin:</strong> Seluruh ekstraksi berkas diproses 100% lokal di perangkat Anda (client-side) dan disimpan ke <code>localStorage</code> browser tanpa dikirim ke server.
+              </div>
+            </div>
+
+            <div class="border-t border-black/5 pt-3 flex items-center justify-between gap-2">
+              <button
+                id="btnClearTranscript"
+                type="button"
+                class="hidden rounded-xl border border-rose-200 bg-white hover:bg-rose-50 px-3 py-1.5 text-xs font-semibold text-rose-600 transition cursor-pointer"
+              >
+                Hapus Data Transkrip
+              </button>
+              <button
+                id="btnSaveTranscript"
+                type="button"
+                class="ml-auto rounded-xl bg-emerald-600 hover:bg-emerald-700 px-4 py-1.5 text-xs font-bold text-white shadow-xs transition cursor-pointer disabled:opacity-50"
+                disabled
+              >
+                Simpan & Sinkronkan
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Toast Feedback Notification -->
+      <div id="toastNotification" class="fixed top-4 right-4 z-50 transform transition-all duration-300 translate-y-[-100px] opacity-0 pointer-events-none">
+        <div class="flex items-center gap-2.5 rounded-xl bg-slate-900/95 border border-white/20 px-4 py-2 text-white shadow-xl backdrop-blur-xl">
+          <span id="toastIcon" class="text-emerald-400 text-sm">✓</span>
+          <span id="toastMessage" class="text-xs font-semibold">Pemberitahuan</span>
+        </div>
+      </div>
     </div>
 
-    <script src="./scripts/schedule-data.js"></script>
+    <!-- Print-Only Layout (Visible solely when printing via window.print()) -->
+    <div id="printReport" class="hidden p-6 max-w-4xl mx-auto">
+      <div class="border-b-2 border-slate-900 pb-3 mb-4">
+        <h1 class="text-xl font-bold uppercase tracking-wide">Universitas Siber Asia (UNSIA)</h1>
+        <h2 class="text-base font-semibold text-slate-800">Simulasi KRS Mahasiswa PJJ Sistem Informasi</h2>
+        <p id="printPeriodTitle" class="text-xs text-slate-600 mt-0.5">Periode Akademik: -</p>
+      </div>
 
+      <div class="mb-4">
+        <table class="w-full text-xs border-collapse border border-slate-300">
+          <thead>
+            <tr class="bg-slate-100 text-left">
+              <th class="border border-slate-300 p-1.5 w-10 text-center">No</th>
+              <th class="border border-slate-300 p-1.5">Kode MK</th>
+              <th class="border border-slate-300 p-1.5">Nama Mata Kuliah</th>
+              <th class="border border-slate-300 p-1.5 text-center">Kelas</th>
+              <th class="border border-slate-300 p-1.5">Jadwal Kuliah</th>
+              <th class="border border-slate-300 p-1.5 text-center">SKS</th>
+              <th class="border border-slate-300 p-1.5 text-center">Status</th>
+            </tr>
+          </thead>
+          <tbody id="printTableBody"></tbody>
+          <tfoot>
+            <tr class="font-bold bg-slate-50">
+              <td colspan="5" class="border border-slate-300 p-1.5 text-right">Total Beban SKS:</td>
+              <td id="printTotalSks" class="border border-slate-300 p-1.5 text-center">-</td>
+              <td class="border border-slate-300 p-1.5"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div class="mt-6 text-[11px] text-slate-500 flex justify-between items-end">
+        <div>
+          <p>* Catatan: Dokumen ini merupakan hasil simulasi mandiri berbasis referensi jadwal perkuliahan.</p>
+          <p>Pastikan jadwal final dikonfirmasi dan disetujui melalui portal resmi akademik UNSIA.</p>
+        </div>
+        <div class="text-right">
+          <p id="printGeneratedDate">Dicetak pada: -</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="./scripts/archive/schedule-data-genap-25-26.js"></script>
+    <script src="./scripts/schedule-data.js"></script>
+    <script src="./scripts/transcript.js"></script>
     <script src="./scripts/data.js"></script>
     <script src="./scripts/app.js"></script>
   </body>

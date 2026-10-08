@@ -1,7 +1,7 @@
 {
-	"name": "Pilihan Kelas UNSIA (Unofficial)",
-	"short_name": "Kelas UNSIA",
-	"description": "Daftar pilihan kelas KRS Universitas Siber Asia untuk periode Genap 25/26 (unofficial).",
+	"name": "Pilihan Kelas UNSIA PJJ Sistem Informasi",
+	"short_name": "KRS PJJ SI",
+	"description": "Simulasi dan referensi pilihan kelas KRS PJJ Sistem Informasi Universitas Siber Asia.",
 	"lang": "id-ID",
 	"start_url": "/",
 	"scope": "/",
